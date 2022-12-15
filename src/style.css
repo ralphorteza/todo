@@ -1,0 +1,314 @@
+/* TODO: fix layout of content  */
+
+body {
+ margin: 0%;
+}
+#content {
+  position: relative;
+
+  height: 100vh;
+  width: auto;
+
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+
+}
+
+:is(#header, #sidebar, #main, #footer, #form-container, .task) {
+  border: 2px solid black;
+}
+
+#sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 8;
+}
+
+#header {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
+#main {
+  grid-column: 2 / -1;
+  grid-row: 2 / 8;
+}
+#footer{
+  grid-column: 1 / -1;
+  grid-row: 8 / -1;
+}
+
+.task {
+  height: 3rem;
+  width: clamp(500px, 80%, 600px);
+  margin: 5px;
+}
+
+
+/* Main container */
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+#project-header-container {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  row-gap: 10px;
+}
+
+
+/* button */
+#add-task {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  height: 50px;
+  width: 80px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task > .left-panel, .right-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.left-panel > input[type='checkbox'] {
+  width: 40px;
+}
+
+.right-panel > .button-edit-task, .button-delete-task {
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  padding: 5px;
+  height: 30px;
+  width: 70px;
+}
+
+/* Sidebar Container */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#sidebar > * {
+  height: 300px;
+}
+
+#custom-projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* project card */
+.card-project {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-project > .left-panel {
+  display: flex;
+  flex-grow: 3;
+}
+
+.card-project > .left-panel > button {
+  flex-grow: 3;
+}
+
+/* Form Container */
+#form-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  height: auto;
+
+  /* Fixes position to the middle of viewport. */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+
+  z-index: 10;
+  background-color: white;
+
+  cursor: pointer;
+}
+
+#form-container.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#form-edit-task-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  height: auto;
+
+  /* Fixes position to the middle of viewport. */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+
+  z-index: 10;
+  background-color: white;
+
+  cursor: pointer;
+}
+
+#form-edit-task-container.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#form-project-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  height: auto;
+
+  /* Fixes position to the middle of viewport. */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+
+  z-index: 10;
+  background-color: white;
+
+  cursor: pointer;
+}
+
+#form-project-container.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+fieldset {
+  margin: 0%;
+  border: none;
+}
+
+fieldset > div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* button:not(#create-task, #cancel-task, #add-task), */
+label, input, select {
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+}
+
+
+input, input[type="date"] {
+  box-shadow: inset 1px 1px 3px #ccc;
+  border-radius: 5px;
+}
+
+input:hover, input:focus {
+  background-color: #eee;
+}
+
+input + span {
+  position: relative;
+}
+
+input:required + span::after{
+  font-size: 0.7rem;
+  position: absolute;
+  content: "required";
+  color: white;
+  background-color: black;
+  padding: 5px 10px;
+  top: -26px;
+  left: -70px;
+}
+
+#task-desc {
+  margin: 0;
+  padding: 0;
+  
+  resize: none;
+  width: 274px;
+  height: 100px;
+}
+
+.form-buttons-container {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-evenly;
+}
+
+.form-buttons-container > * {
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  padding: 5px;
+  height: 30px;
+}
+
+/* frosted glass effect */
+/* .task {
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+} */
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* #create-task.active {
+  pointer-events: all;
+}
+
+#create-task {
+  pointer-events: none;
+} */

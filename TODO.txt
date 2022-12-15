@@ -1,0 +1,39 @@
+Things todo:
+
+Create basic webpage layout. DONE 11/8/22
+  - header
+  - footer
+  - main
+  - main cards
+  - side bar
+  - css
+
+Create functionality of making todo items.
+  - add task button
+  - event listener
+  - fields
+
+Create layout of todo item.
+
+
+Create form DONE 11/14/22
+  - task
+  - Description
+  - priority
+  - date
+  - add button
+
+Create form functionality
+  - make add button go behing overlay!    DONE
+    + move it from main to content child?
+  - get form addEventListener     DONE
+  - cancel item addEventListener  DONE
+    + click overlay to also cancel
+  - refactor module!!!            DONE
+  - add item addEventListener
+    + have information in card
+    + put information into local storage
+
+Create card items
+  - make UI (checkbox, title, duedate, delete) DONE
+  - make object function to hold card items
